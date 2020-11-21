@@ -1,50 +1,39 @@
-<script>
-	import successkid from 'images/successkid.jpg';
+<script lang="ts">
+  import Nav from "../components/Nav.svelte";
+  import CoverPoster from "../components/CoverPoster.svelte";
+
+  export let segment: string;
 </script>
 
 <style>
-	h1, figure, p {
-		text-align: center;
-		margin: 0 auto;
-	}
+  * {
+    box-sizing: border-box;
+  }
 
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
+  main {
+    width: 100%;
+    height: calc(100vh - 4em);
+  }
 
-	figure {
-		margin: 0 0 1em 0;
-	}
-
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
-	}
-
-	p {
-		margin: 1em auto;
-	}
-
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
-	}
+  #card-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-flow: row wrap;
+    align-items: stretch;
+    padding: 10px;
+  }
 </style>
 
 <svelte:head>
-	<title>Sapper project template</title>
+  <title>Sapper project template</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<Nav {segment} />
 
-<figure>
-	<img alt="Success Kid" src="{successkid}">
-	<figcaption>Have fun with Sapper!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+<main>
+  <div id="card-container">
+    <CoverPoster img="../artwork/hidden_season.png" />
+    <CoverPoster img="./artwork/pelton_gaming.png" />
+  </div>
+</main>

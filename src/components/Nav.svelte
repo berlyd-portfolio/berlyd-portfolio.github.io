@@ -6,6 +6,7 @@
   nav {
     font-weight: 300;
     padding: 0 1em;
+    padding-top: 1em;
     flex: 0 1 auto;
   }
 
@@ -52,11 +53,26 @@
     padding: 1em 0.5em;
     display: block;
   }
+
+  #logo {
+    margin-left: 2em;
+  }
+
+  #logo a {
+    padding: 0.5em;
+  }
 </style>
 
 <nav>
-  <div class="table">
-    <ul>
+  <ul>
+    <li id="logo">
+      <a href="."><img
+          src="logo.png"
+          alt="logo"
+          height="42px"
+          width="42px" /></a>
+    </li>
+    <div class="table">
       <li>
         <a
           aria-current={segment === undefined ? 'page' : undefined}
@@ -64,8 +80,8 @@
       </li>
       <li>
         <a
-          aria-current={segment === 'about' ? 'page' : undefined}
-          href="about">gallery</a>
+          aria-current={segment === 'gallery' ? 'page' : undefined}
+          href="gallery">gallery</a>
       </li>
 
       <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
@@ -73,9 +89,9 @@
       <li>
         <a
           rel="prefetch"
-          aria-current={segment === 'blog' ? 'page' : undefined}
-          href="blog">blog</a>
+          aria-current={segment === 'resume' ? 'page' : undefined}
+          href="resume">resume</a>
       </li>
-    </ul>
-  </div>
+    </div>
+  </ul>
 </nav>

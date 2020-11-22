@@ -10,9 +10,10 @@
     flex: 0 1 auto;
   }
 
-  .table {
-    display: table;
-    margin: 0 auto;
+  .center-abs {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   ul {
@@ -34,11 +35,17 @@
   }
 
   [aria-current] {
-    position: relative;
+    /* position: relative;
     display: inline-block;
+     */
+    font-weight: bold;
   }
 
-  [aria-current]::after {
+  a {
+    color: inherit;
+  }
+
+  /* [aria-current]::after {
     position: absolute;
     content: "";
     width: calc(100% - 1em);
@@ -46,7 +53,7 @@
     background-color: rgb(255, 62, 0);
     display: block;
     bottom: 0.5em;
-  }
+  } */
 
   a {
     text-decoration: none;
@@ -72,7 +79,7 @@
           height="42px"
           width="42px" /></a>
     </li>
-    <div class="table">
+    <div class="center-abs">
       <li>
         <a
           aria-current={segment === undefined ? 'page' : undefined}
@@ -83,12 +90,8 @@
           aria-current={segment === 'gallery' ? 'page' : undefined}
           href="gallery">gallery</a>
       </li>
-
-      <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
       <li>
         <a
-          rel="prefetch"
           aria-current={segment === 'resume' ? 'page' : undefined}
           href="resume">resume</a>
       </li>

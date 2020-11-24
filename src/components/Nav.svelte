@@ -35,25 +35,12 @@
   }
 
   [aria-current] {
-    /* position: relative;
-    display: inline-block;
-     */
     font-weight: bold;
   }
 
   a {
     color: inherit;
   }
-
-  /* [aria-current]::after {
-    position: absolute;
-    content: "";
-    width: calc(100% - 1em);
-    height: 2px;
-    background-color: rgb(255, 62, 0);
-    display: block;
-    bottom: 0.5em;
-  } */
 
   a {
     text-decoration: none;

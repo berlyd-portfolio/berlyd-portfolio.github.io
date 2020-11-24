@@ -1,10 +1,18 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+  import Image from "../components/Image.svelte";
+
+  onMount(function () {
+    load_animation();
+  });
+
   let right_hovered = false;
   let left_hovered = false;
   let exiting = false;
+  let entering = true;
 
   function enter(id: string) {
-    if (!exiting) {
+    if (!exiting && !entering) {
       if (id === "right") {
         right_hovered = true;
       } else if (id === "left") {
@@ -14,7 +22,7 @@
   }
 
   function leave(id: string) {
-    if (!exiting) {
+    if (!exiting && !entering) {
       if (id === "right") {
         right_hovered = false;
       } else if (id === "left") {
@@ -23,25 +31,23 @@
     }
   }
 
-  function navigate(section: string) {
+  function navigate(url: string) {
     exiting = true;
-    if (section === "right") {
-      document.getElementById("left").style.transform = "translateX(-35vw)";
-      document.getElementById("right").style.transform = "translateX(65vw)";
-      setInterval(() => {
-        redirect("something");
-      }, 500);
-    } else {
-      document.getElementById("left").style.transform = "translateX(-65vw)";
-      document.getElementById("right").style.transform = "translateX(35vw)";
-      setInterval(() => {
-        redirect("something");
-      }, 500);
-    }
+    document.getElementById("left-inner").style.transform = "translateX(-100%)";
+    document.getElementById("right-inner").style.transform = "translateX(100%)";
+    setInterval(function () {
+      document.location.href = url;
+    }, 500);
   }
 
-  function redirect(url: string) {
-    document.location.href = url;
+  function load_animation() {
+    document.getElementById("left-inner").style.animation =
+      "slideInFromLeft 0.5s ease-out";
+    document.getElementById("right-inner").style.animation =
+      "slideInFromRight 0.5s ease-out";
+    setInterval(function () {
+      entering = false;
+    }, 500);
   }
 </script>
 
@@ -49,6 +55,7 @@
   main {
     width: 100%;
     height: calc(100vh - 48px - 2em);
+    overflow: hidden;
   }
 
   #card-container {
@@ -62,26 +69,28 @@
   }
 
   .poster-card {
-    transition: width 0.5s ease-in-out, box-shadow 0.5s ease-in-out,
-      transform 0.5s ease-in;
-    margin-top: 10px;
-    margin-bottom: 10px;
     height: calc(100% - 20px);
-    overflow: hidden;
-    position: relative;
   }
 
-  .poster-card::before {
-    transition: opacity 0.5s ease-in-out;
-    content: "";
-    background-position: 50% 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 0;
+  .inner-card {
+    transition: width 0.5s ease-in-out, box-shadow 0.5s ease-in-out,
+      transform 0.5s ease-in;
+    height: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    overflow: hidden;
+    position: relative;
     left: 0;
-    bottom: 0;
-    right: 0;
+  }
+
+  #left-inner.card-enter {
+    transform: translateX(-100%);
+  }
+
+  #right-inner.card-enter {
+    transform: translateX(100%);
   }
 
   .active {
@@ -89,10 +98,6 @@
     box-shadow: 0px 8px 9px -5px rgba(0, 0, 0, 0.2),
       0px 15px 22px 2px rgba(0, 0, 0, 0.14),
       0px 6px 28px 5px rgba(0, 0, 0, 0.12);
-  }
-
-  .active::before {
-    opacity: 0.6;
   }
 
   .normal {
@@ -107,26 +112,40 @@
       0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   }
 
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
   #left {
-    margin-left: 0;
-    margin-right: 10px;
+    padding-right: 10px;
+  }
+
+  #left-inner {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
   }
 
-  #left::before {
-    background-image: url(../artwork/hidden_season.png);
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
 
   #right {
-    margin-right: 0;
-    margin-left: 10px;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
+    padding-left: 10px;
   }
 
-  #right::before {
-    background-image: url(../artwork/pelton_gaming.png);
+  #right-inner {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
   }
 
   .btn {
@@ -146,41 +165,57 @@
     <div
       id="left"
       class="poster-card"
-      on:mouseenter={() => {
+      on:mouseenter={function () {
         enter('left');
       }}
-      on:mouseleave={() => {
+      on:mouseleave={function () {
         leave('left');
-      }}
-      class:active={left_hovered}
-      class:normal={!right_hovered && !left_hovered}
-      class:inactive={right_hovered}>
-      <button
-        type="button"
-        class="btn btn-outline-primary"
-        hidden={!left_hovered}
-        on:click={() => {
-          navigate('left');
-        }}>Primary</button>
+      }}>
+      <div
+        class="inner-card"
+        id="left-inner"
+        class:active={left_hovered}
+        class:normal={!right_hovered && !left_hovered}
+        class:inactive={right_hovered}
+        class:card-enter={entering}>
+        <Image
+          src="artwork/hidden_season.png"
+          alt="Hidden Season"
+          opacity={left_hovered ? 0.6 : 1} />
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          hidden={!left_hovered}
+          on:click={function () {
+            navigate('left');
+          }}>Primary</button>
+      </div>
     </div>
     <div
       id="right"
       class="poster-card"
-      on:mouseenter={() => {
+      on:mouseenter={function () {
         enter('right');
       }}
-      on:mouseleave={() => {
+      on:mouseleave={function () {
         leave('right');
-      }}
-      class:active={right_hovered}
-      class:normal={!right_hovered && !left_hovered}
-      class:inactive={left_hovered}>
-      <div class="card-content">
+      }}>
+      <div
+        class="inner-card"
+        id="right-inner"
+        class:active={right_hovered}
+        class:normal={!right_hovered && !left_hovered}
+        class:inactive={left_hovered}
+        class:card-enter={entering}>
+        <Image
+          src="artwork/pelton_gaming.png"
+          alt="Pelton Gaming"
+          opacity={right_hovered ? 0.6 : 1} />
         <button
           type="button"
           class="btn btn-outline-primary"
           hidden={!right_hovered}
-          on:click={() => {
+          on:click={function () {
             navigate('right');
           }}>Primary</button>
       </div>

@@ -9,7 +9,7 @@
   let exiting = false;
   let entering = true;
   let loaded_count = 0;
-  const loaded_target = 2;
+  let loaded_target = 0;
   let loading = false;
 
   onMount(function () {
@@ -41,20 +41,22 @@
     }
   }
 
-  function navigate(url: string) {
+  export function exit_page() {
     exiting = true;
     document.getElementById("left-inner").style.transform = "translateX(-100%)";
     document.getElementById("right-inner").style.transform = "translateX(100%)";
+  }
+
+  function navigate(url: string) {
+    exit_page();
     setTimeout(function () {
       document.location.href = url;
     }, 500);
   }
 
-  function image_loaded() {
-    console.log("Loaded called");
+  function image_onload() {
     loaded_count += 1;
     if (loaded_count === loaded_target) {
-      console.log("Fully loaded");
       document.getElementById("left-inner").style.animation =
         "slideInFromLeft 0.5s ease-out";
       document.getElementById("right-inner").style.animation =
@@ -64,6 +66,10 @@
         entering = false;
       }, 500);
     }
+  }
+
+  function image_oncreate() {
+    loaded_target += 1;
   }
 </script>
 
@@ -198,10 +204,11 @@
         class:inactive={right_hovered}
         class:card-enter={entering}>
         <Image
-          src="artwork/hidden_season.png"
+          src="artwork/hidden_season_scaled"
           alt="Hidden Season"
           opacity={left_hovered ? 0.6 : 1}
-          onload={image_loaded} />
+          onload={image_onload}
+          oncreate={image_oncreate} />
         <button
           type="button"
           class="btn btn-outline-primary"
@@ -228,10 +235,11 @@
         class:inactive={left_hovered}
         class:card-enter={entering}>
         <Image
-          src="artwork/pelton_gaming.png"
+          src="artwork/pelton_gaming_scaled"
           alt="Pelton Gaming"
           opacity={right_hovered ? 0.6 : 1}
-          onload={image_loaded} />
+          onload={image_onload}
+          oncreate={image_oncreate} />
         <button
           type="button"
           class="btn btn-outline-primary"

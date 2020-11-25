@@ -5,6 +5,7 @@
   export let alt: string;
   export let opacity: number = 1;
   export let onload: () => void;
+  export let oncreate: () => void;
 
   let img: HTMLImageElement;
 
@@ -16,12 +17,27 @@
 </script>
 
 <style>
-  img {
-    object-fit: cover;
+  picture {
     width: 100%;
     height: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: opacity 0.5s ease-in-out;
   }
 </style>
 
-<img {src} {alt} style="opacity: {opacity}" on:load={onload} bind:this={img} />
+<picture>
+  <source srcset={src + '.webp'} type="image/webp" />
+  <source srcset={src + '.png'} type="image/png" />
+  <img
+    use:oncreate
+    src={src + '.png'}
+    {alt}
+    style="opacity: {opacity}"
+    on:load={onload}
+    bind:this={img} />
+</picture>

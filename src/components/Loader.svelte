@@ -1,4 +1,8 @@
 <!-- Code adapted from https://codepen.io/rafaelavlucas/pen/gOOGLgz as of 11/24/2020 -->
+<script>
+  import { fade } from "svelte/transition";
+</script>
+
 <style type="text/scss">
   @import url("https://fonts.googleapis.com/css?family=Oxygen:700&display=swap");
 
@@ -11,7 +15,7 @@
   .loading {
     width: 80px;
     height: 50px;
-    position: relative;
+    position: fixed;
     top: 38.2%;
     left: 50%;
     transform: translateX(-50%), translateY(-50%);
@@ -129,7 +133,7 @@
   }
 </style>
 
-<div class="loading">
+<div class="loading" transition:fade>
   <p>loading</p>
   <span />
 </div>

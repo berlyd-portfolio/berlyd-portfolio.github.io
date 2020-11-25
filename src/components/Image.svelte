@@ -2,6 +2,7 @@
   export let src: string;
   export let alt: string;
   export let opacity: number = 1;
+  export let onload: () => void;
 </script>
 
 <style>
@@ -13,4 +14,4 @@
   }
 </style>
 
-<img {src} {alt} style="opacity: {opacity}" />
+<img {src} {alt} style="opacity: {opacity}" on:load={onload} />

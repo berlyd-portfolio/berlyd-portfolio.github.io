@@ -1,15 +1,12 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import Image from "../components/Image.svelte";
-
-  onMount(function () {
-    load_animation();
-  });
 
   let right_hovered = false;
   let left_hovered = false;
   let exiting = false;
   let entering = true;
+  let loaded_count = 0;
+  const loaded_target = 2;
 
   function enter(id: string) {
     if (!exiting && !entering) {
@@ -40,14 +37,17 @@
     }, 500);
   }
 
-  function load_animation() {
-    document.getElementById("left-inner").style.animation =
-      "slideInFromLeft 0.5s ease-out";
-    document.getElementById("right-inner").style.animation =
-      "slideInFromRight 0.5s ease-out";
-    setInterval(function () {
-      entering = false;
-    }, 500);
+  function image_loaded() {
+    loaded_count += 1;
+    if (loaded_count === loaded_target) {
+      document.getElementById("left-inner").style.animation =
+        "slideInFromLeft 0.5s ease-out";
+      document.getElementById("right-inner").style.animation =
+        "slideInFromRight 0.5s ease-out";
+      setInterval(function () {
+        entering = false;
+      }, 500);
+    }
   }
 </script>
 
@@ -181,7 +181,8 @@
         <Image
           src="artwork/hidden_season.png"
           alt="Hidden Season"
-          opacity={left_hovered ? 0.6 : 1} />
+          opacity={left_hovered ? 0.6 : 1}
+          onload={image_loaded} />
         <button
           type="button"
           class="btn btn-outline-primary"
@@ -210,7 +211,8 @@
         <Image
           src="artwork/pelton_gaming.png"
           alt="Pelton Gaming"
-          opacity={right_hovered ? 0.6 : 1} />
+          opacity={right_hovered ? 0.6 : 1}
+          onload={image_loaded} />
         <button
           type="button"
           class="btn btn-outline-primary"

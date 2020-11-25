@@ -1,5 +1,8 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
   import Image from "../components/Image.svelte";
+  import Loader from "../components/Loader.svelte";
 
   let right_hovered = false;
   let left_hovered = false;
@@ -7,6 +10,16 @@
   let entering = true;
   let loaded_count = 0;
   const loaded_target = 2;
+  let loading = false;
+
+  onMount(function () {
+    setTimeout(function () {
+      if (loaded_count != loaded_target) {
+        console.log("starting loader");
+        loading = true;
+      }
+    }, 500);
+  });
 
   function enter(id: string) {
     if (!exiting && !entering) {
@@ -32,19 +45,22 @@
     exiting = true;
     document.getElementById("left-inner").style.transform = "translateX(-100%)";
     document.getElementById("right-inner").style.transform = "translateX(100%)";
-    setInterval(function () {
+    setTimeout(function () {
       document.location.href = url;
     }, 500);
   }
 
   function image_loaded() {
+    console.log("Loaded called");
     loaded_count += 1;
     if (loaded_count === loaded_target) {
+      console.log("Fully loaded");
       document.getElementById("left-inner").style.animation =
         "slideInFromLeft 0.5s ease-out";
       document.getElementById("right-inner").style.animation =
         "slideInFromRight 0.5s ease-out";
-      setInterval(function () {
+      setTimeout(function () {
+        loading = false;
         entering = false;
       }, 500);
     }
@@ -161,6 +177,9 @@
 </svelte:head>
 
 <main>
+  {#if loading}
+    <Loader />
+  {/if}
   <div id="card-container">
     <div
       id="left"

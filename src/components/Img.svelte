@@ -4,8 +4,7 @@
   export let src: string;
   export let alt: string;
   export let opacity: number = 1;
-  export let onload: () => void;
-  export let oncreate: () => void;
+  export let onload = () => {};
 
   let img: HTMLImageElement;
 
@@ -34,7 +33,6 @@
   <source srcset={src + '.webp'} type="image/webp" />
   <source srcset={src + '.png'} type="image/png" />
   <img
-    use:oncreate
     src={src + '.png'}
     {alt}
     style="opacity: {opacity}"

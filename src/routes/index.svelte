@@ -1,25 +1,68 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { cubicInOut } from "svelte/easing";
 
-  import Image from "../components/Image.svelte";
+  import Img from "../components/Img.svelte";
   import Loader from "../components/Loader.svelte";
+  import { get_webp_support } from "../utils/store";
 
   let right_hovered = false;
   let left_hovered = false;
+
   let exiting = false;
-  let entering = true;
+  let entering = false;
+
   let loaded_count = 0;
-  let loaded_target = 0;
-  let loading = false;
+  const loaded_target = 2;
+  let loader_display = false;
 
   onMount(function () {
+    const webp_support = get_webp_support();
+    let left_img = new Image();
+    left_img.addEventListener("load", function () {
+      loaded_count += 1;
+    });
+    if (webp_support) {
+      left_img.src = "artwork/hidden_season_scaled.webp";
+    } else {
+      left_img.src = "artwork/hidden_season_scaled.png";
+    }
+
+    let right_img = new Image();
+    right_img.addEventListener("load", function () {
+      loaded_count += 1;
+    });
+    if (webp_support) {
+      right_img.src = "artwork/pelton_gaming_scaled.webp";
+    } else {
+      right_img.src = "artwork/pelton_gaming_scaled.png";
+    }
+
     setTimeout(function () {
       if (loaded_count != loaded_target) {
         console.log("starting loader");
-        loading = true;
+        loader_display = true;
       }
     }, 500);
   });
+
+  function slideRight(node, { delay = 0, duration = 500 }) {
+    return {
+      delay,
+      duration,
+      easing: cubicInOut,
+      css: (t: number) => `transform: translateX(${(1 - t) * 100}%)`,
+    };
+  }
+
+  function slideLeft(node, { delay = 0, duration = 500 }) {
+    return {
+      delay,
+      duration,
+      easing: cubicInOut,
+      css: (t: number) => `transform: translateX(-${(1 - t) * 100}%)`,
+    };
+  }
 
   function enter(id: string) {
     if (!exiting && !entering) {
@@ -39,37 +82,6 @@
         left_hovered = false;
       }
     }
-  }
-
-  export function exit_page() {
-    exiting = true;
-    document.getElementById("left-inner").style.transform = "translateX(-100%)";
-    document.getElementById("right-inner").style.transform = "translateX(100%)";
-  }
-
-  function navigate(url: string) {
-    exit_page();
-    setTimeout(function () {
-      document.location.href = url;
-    }, 500);
-  }
-
-  function image_onload() {
-    loaded_count += 1;
-    if (loaded_count === loaded_target) {
-      document.getElementById("left-inner").style.animation =
-        "slideInFromLeft 0.5s ease-out";
-      document.getElementById("right-inner").style.animation =
-        "slideInFromRight 0.5s ease-out";
-      setTimeout(function () {
-        loading = false;
-        entering = false;
-      }, 500);
-    }
-  }
-
-  function image_oncreate() {
-    loaded_target += 1;
   }
 </script>
 
@@ -134,15 +146,6 @@
       0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   }
 
-  @keyframes slideInFromLeft {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-
   #left {
     padding-right: 10px;
   }
@@ -150,15 +153,6 @@
   #left-inner {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-  }
-
-  @keyframes slideInFromRight {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(0);
-    }
   }
 
   #right {
@@ -183,7 +177,7 @@
 </svelte:head>
 
 <main>
-  {#if loading}
+  {#if loader_display}
     <Loader />
   {/if}
   <div id="card-container">
@@ -196,27 +190,26 @@
       on:mouseleave={function () {
         leave('left');
       }}>
-      <div
-        class="inner-card"
-        id="left-inner"
-        class:active={left_hovered}
-        class:normal={!right_hovered && !left_hovered}
-        class:inactive={right_hovered}
-        class:card-enter={entering}>
-        <Image
-          src="artwork/hidden_season_scaled"
-          alt="Hidden Season"
-          opacity={left_hovered ? 0.6 : 1}
-          onload={image_onload}
-          oncreate={image_oncreate} />
-        <button
-          type="button"
-          class="btn btn-outline-primary"
-          hidden={!left_hovered}
-          on:click={function () {
-            navigate('left');
-          }}>Primary</button>
-      </div>
+      {#if loaded_target === loaded_count}
+        <div
+          class="inner-card"
+          id="left-inner"
+          class:active={left_hovered}
+          class:normal={!right_hovered && !left_hovered}
+          class:inactive={right_hovered}
+          class:card-enter={entering}
+          transition:slideLeft>
+          <Img
+            src="artwork/hidden_season_scaled"
+            alt="Hidden Season"
+            opacity={left_hovered ? 0.6 : 1} />
+          <a
+            type="button"
+            class="btn btn-outline-primary"
+            hidden={!left_hovered}
+            href="left">Primary</a>
+        </div>
+      {/if}
     </div>
     <div
       id="right"
@@ -227,27 +220,26 @@
       on:mouseleave={function () {
         leave('right');
       }}>
-      <div
-        class="inner-card"
-        id="right-inner"
-        class:active={right_hovered}
-        class:normal={!right_hovered && !left_hovered}
-        class:inactive={left_hovered}
-        class:card-enter={entering}>
-        <Image
-          src="artwork/pelton_gaming_scaled"
-          alt="Pelton Gaming"
-          opacity={right_hovered ? 0.6 : 1}
-          onload={image_onload}
-          oncreate={image_oncreate} />
-        <button
-          type="button"
-          class="btn btn-outline-primary"
-          hidden={!right_hovered}
-          on:click={function () {
-            navigate('right');
-          }}>Primary</button>
-      </div>
+      {#if loaded_target === loaded_count}
+        <div
+          class="inner-card"
+          id="right-inner"
+          class:active={right_hovered}
+          class:normal={!right_hovered && !left_hovered}
+          class:inactive={left_hovered}
+          class:card-enter={entering}
+          transition:slideRight>
+          <Img
+            src="artwork/pelton_gaming_scaled"
+            alt="Pelton Gaming"
+            opacity={right_hovered ? 0.6 : 1} />
+          <a
+            type="button"
+            class="btn btn-outline-primary"
+            hidden={!right_hovered}
+            href="right">Primary</a>
+        </div>
+      {/if}
     </div>
   </div>
 </main>

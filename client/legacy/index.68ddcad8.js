@@ -1,4 +1,4 @@
-import { _ as _inherits, a as _getPrototypeOf, b as _possibleConstructorReturn, c as _classCallCheck, i as init, s as safe_not_equal, d as _assertThisInitialized, e as dispatch_dev, f as _createClass, S as SvelteComponentDev, v as validate_slots, o as onMount, g as element, h as space, j as claim_element, k as children, l as claim_space, m as detach_dev, n as attr_dev, p as add_location, q as set_style, r as insert_dev, t as append_dev, u as listen_dev, w as is_function, x as _slicedToArray, y as noop, z as binding_callbacks, A as identity, B as text, C as claim_text, D as add_render_callback, E as create_bidirectional_transition, F as create_component, G as claim_component, H as mount_component, I as transition_in, J as transition_out, K as destroy_component, L as toggle_class, M as prop_dev, N as query_selector_all, O as check_outros, P as run_all, Q as get_webp_support, R as globals, T as group_outros } from './client.ffa4d03d.js';
+import { _ as _inherits, a as _getPrototypeOf, b as _possibleConstructorReturn, c as _classCallCheck, i as init, s as safe_not_equal, d as _assertThisInitialized, e as dispatch_dev, f as _createClass, S as SvelteComponentDev, v as validate_slots, o as onMount, g as element, h as space, j as claim_element, k as children, l as claim_space, m as detach_dev, n as attr_dev, p as add_location, q as set_style, r as insert_dev, t as append_dev, u as listen_dev, w as is_function, x as _slicedToArray, y as noop, z as binding_callbacks, A as identity, B as text, C as claim_text, D as add_render_callback, E as create_bidirectional_transition, F as create_component, G as claim_component, H as mount_component, I as transition_in, J as transition_out, K as destroy_component, L as toggle_class, M as prop_dev, N as query_selector_all, O as check_outros, P as run_all, Q as get_webp_support, R as globals, T as group_outros } from './client.4c4eb15d.js';
 
 function cubicInOut(t) {
   return t < 0.5 ? 4.0 * t * t * t : 0.5 * Math.pow(2.0 * t - 2.0, 3.0) + 1.0;
@@ -460,7 +460,7 @@ function _createSuper$2(Derived) { var hasNativeReflectConstruct = _isNativeRefl
 
 function _isNativeReflectConstruct$2() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 var console_1 = globals.console;
-var file$2 = "src/routes/index.svelte"; // (122:2) {#if loader_display}
+var file$2 = "src/routes/index.svelte"; // (124:2) {#if loader_display}
 
 function create_if_block_2(ctx) {
   var loader;
@@ -496,11 +496,11 @@ function create_if_block_2(ctx) {
     block: block,
     id: create_if_block_2.name,
     type: "if",
-    source: "(122:2) {#if loader_display}",
+    source: "(124:2) {#if loader_display}",
     ctx: ctx
   });
   return block;
-} // (135:6) {#if loaded_target === loaded_count}
+} // (137:6) {#if loaded_target === loaded_count}
 
 
 function create_if_block_1(ctx) {
@@ -552,13 +552,13 @@ function create_if_block_1(ctx) {
     },
     h: function hydrate() {
       attr_dev(a, "type", "button");
-      attr_dev(a, "class", "btn btn-outline-primary svelte-j1n5z6");
+      attr_dev(a, "class", "btn btn-outline-primary svelte-1t689gm");
       a.hidden = a_hidden_value = !
       /*left_hovered*/
       ctx[1];
       attr_dev(a, "href", "left");
-      add_location(a, file$2, 145, 10, 3829);
-      attr_dev(div, "class", "inner-card rounded-r-2xl svelte-j1n5z6");
+      add_location(a, file$2, 147, 10, 3853);
+      attr_dev(div, "class", "inner-card rounded-r-2xl svelte-1t689gm");
       toggle_class(div, "active",
       /*left_hovered*/
       ctx[1]);
@@ -570,7 +570,7 @@ function create_if_block_1(ctx) {
       toggle_class(div, "inactive",
       /*right_hovered*/
       ctx[0]);
-      add_location(div, file$2, 135, 8, 3461);
+      add_location(div, file$2, 137, 8, 3485);
     },
     m: function mount(target, anchor) {
       insert_dev(target, div, anchor);
@@ -652,11 +652,11 @@ function create_if_block_1(ctx) {
     block: block,
     id: create_if_block_1.name,
     type: "if",
-    source: "(135:6) {#if loaded_target === loaded_count}",
+    source: "(137:6) {#if loaded_target === loaded_count}",
     ctx: ctx
   });
   return block;
-} // (163:6) {#if loaded_target === loaded_count}
+} // (165:6) {#if loaded_target === loaded_count}
 
 
 function create_if_block(ctx) {
@@ -708,13 +708,13 @@ function create_if_block(ctx) {
     },
     h: function hydrate() {
       attr_dev(a, "type", "button");
-      attr_dev(a, "class", "btn btn-outline-primary svelte-j1n5z6");
+      attr_dev(a, "class", "btn btn-outline-primary svelte-1t689gm");
       a.hidden = a_hidden_value = !
       /*right_hovered*/
       ctx[0];
       attr_dev(a, "href", "right");
-      add_location(a, file$2, 173, 10, 4614);
-      attr_dev(div, "class", "inner-card rounded-l-2xl svelte-j1n5z6");
+      add_location(a, file$2, 175, 10, 4638);
+      attr_dev(div, "class", "inner-card rounded-l-2xl svelte-1t689gm");
       toggle_class(div, "active",
       /*right_hovered*/
       ctx[0]);
@@ -726,7 +726,7 @@ function create_if_block(ctx) {
       toggle_class(div, "inactive",
       /*left_hovered*/
       ctx[1]);
-      add_location(div, file$2, 163, 8, 4244);
+      add_location(div, file$2, 165, 8, 4268);
     },
     m: function mount(target, anchor) {
       insert_dev(target, div, anchor);
@@ -808,7 +808,7 @@ function create_if_block(ctx) {
     block: block,
     id: create_if_block.name,
     type: "if",
-    source: "(163:6) {#if loaded_target === loaded_count}",
+    source: "(165:6) {#if loaded_target === loaded_count}",
     ctx: ctx
   });
   return block;
@@ -886,15 +886,15 @@ function create_fragment$2(ctx) {
       document.title = "Berly Dai Portfolio";
       attr_dev(div0, "id", "left");
       attr_dev(div0, "class", "pr-2");
-      add_location(div0, file$2, 125, 4, 3235);
+      add_location(div0, file$2, 127, 4, 3259);
       attr_dev(div1, "id", "right");
       attr_dev(div1, "class", "pl-2");
-      add_location(div1, file$2, 153, 4, 4015);
+      add_location(div1, file$2, 155, 4, 4039);
       attr_dev(div2, "class", "flex h-full w-full pb-4");
-      add_location(div2, file$2, 124, 2, 3193);
+      add_location(div2, file$2, 126, 2, 3217);
       attr_dev(main, "class", "w-full overflow-hidden");
       set_style(main, "height", "calc(100vh - 5.5rem)");
-      add_location(main, file$2, 120, 0, 3070);
+      add_location(main, file$2, 122, 0, 3094);
     },
     m: function mount(target, anchor) {
       insert_dev(target, t0, anchor);

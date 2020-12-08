@@ -1,8 +1,8 @@
 const tailwind = require("tailwindcss");
 const cssnano = require("cssnano");
 const presetEnv = require("postcss-preset-env")({
+  stage: 1,
   features: {
-    // enable nesting
     "nesting-rules": true,
   },
 });

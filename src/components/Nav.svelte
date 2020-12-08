@@ -3,12 +3,14 @@
 </script>
 
 <style>
-  a {
-    @apply text-black no-underline block;
-  }
+  @layer components {
+    .text-link {
+      @apply px-2 py-4 block float-left;
 
-  .text-link {
-    @apply px-2 py-4 block float-left;
+      & a {
+        @apply text-black no-underline block;
+      }
+    }
   }
 </style>
 

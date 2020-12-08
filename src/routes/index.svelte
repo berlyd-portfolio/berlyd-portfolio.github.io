@@ -85,27 +85,31 @@
 </script>
 
 <style>
-  .inner-card {
-    @apply overflow-hidden relative h-full transition-all duration-500 ease-in-out;
-  }
+  @layer components {
+    .inner-card {
+      @apply overflow-hidden relative h-full transition-all duration-500 ease-in-out;
+    }
 
-  .active {
-    width: calc(65vw - 10px);
-    box-shadow: 0px 8px 9px -5px rgba(0, 0, 0, 0.2),
-      0px 15px 22px 2px rgba(0, 0, 0, 0.14),
-      0px 6px 28px 5px rgba(0, 0, 0, 0.12);
-  }
+    .active {
+      width: calc(65vw - 10px);
+      box-shadow: 0px 8px 9px -5px rgba(0, 0, 0, 0.2),
+        0px 15px 22px 2px rgba(0, 0, 0, 0.14),
+        0px 6px 28px 5px rgba(0, 0, 0, 0.12);
+    }
 
-  .normal {
-    width: calc(50vw - 10px);
-    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-      0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-  }
+    .normal {
+      width: calc(50vw - 10px);
+      box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+        0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    }
 
-  .inactive {
-    width: calc(35vw - 10px);
-    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-      0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    .inactive {
+      width: calc(35vw - 10px);
+      box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+        0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    }
   }
 
   .btn {

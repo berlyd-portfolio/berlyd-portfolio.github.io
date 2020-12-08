@@ -3,84 +3,30 @@
 </script>
 
 <style>
-  nav {
-    font-weight: 300;
-    padding: 0 1em;
-    padding-top: 1em;
-    flex: 0 1 auto;
-  }
-
-  .center-abs {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  ul {
-    text-align: center;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* clearfix */
-  ul::after {
-    content: "";
-    display: block;
-    clear: both;
-  }
-
-  li {
-    display: block;
-    float: left;
-  }
-
-  [aria-current] {
-    font-weight: bold;
-  }
-
   a {
-    color: inherit;
+    @apply text-black no-underline block;
   }
 
-  a {
-    text-decoration: none;
-    padding: 1em 0.5em;
-    display: block;
-  }
-
-  #logo {
-    margin-left: 2em;
-  }
-
-  #logo a {
-    padding: 0.5em;
+  .text-link {
+    @apply px-2 py-4 block float-left;
   }
 </style>
 
-<nav>
-  <ul>
-    <li id="logo">
-      <a href="."><img
-          src="logo.png"
-          alt="logo"
-          height="42px"
-          width="42px" /></a>
+<nav class="m-4">
+  <ul class="flex flex-row justify-center items-center relative">
+    <li
+      class="absolute left-0 top-0 h-full ml-4 inline-flex flex-row items-center">
+      <a href="."><img src="logo.png" alt="logo" class="h-12 w-12" /></a>
     </li>
-    <div class="center-abs">
-      <li>
-        <a
-          aria-current={segment === undefined ? 'page' : undefined}
-          href=".">home</a>
+    <div>
+      <li class="text-link">
+        <a class:font-bold={segment === undefined} href=".">home</a>
       </li>
-      <li>
-        <a
-          aria-current={segment === 'gallery' ? 'page' : undefined}
-          href="gallery">gallery</a>
+      <li class="text-link">
+        <a class:font-bold={segment === 'gallery'} href="gallery">gallery</a>
       </li>
-      <li>
-        <a
-          aria-current={segment === 'resume' ? 'page' : undefined}
-          href="resume">resume</a>
+      <li class="text-link">
+        <a class:font-bold={segment === 'resume'} href="resume">resume</a>
       </li>
     </div>
   </ul>

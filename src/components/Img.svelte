@@ -15,24 +15,11 @@
   });
 </script>
 
-<style>
-  picture {
-    width: 100%;
-    height: 100%;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.5s ease-in-out;
-  }
-</style>
-
-<picture>
+<picture class="w-full h-full">
   <source srcset={src + '.webp'} type="image/webp" />
   <source srcset={src + '.png'} type="image/png" />
   <img
+    class="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
     src={src + '.png'}
     {alt}
     style="opacity: {opacity}"

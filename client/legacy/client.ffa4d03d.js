@@ -3282,15 +3282,15 @@ var App = /*#__PURE__*/function (_SvelteComponentDev) {
 var ignore = [];
 var components = [{
   js: function js() {
-    return Promise.all([import('./index.a8f6c936.js'), __inject_styles(["client-8d931b47.css","index-1fb38993.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./index.e5f4456c.js'), __inject_styles(["client-8d931b47.css","index-a61387ee.css"])]).then(function(x) { return x[0]; });
   }
 }, {
   js: function js() {
-    return Promise.all([import('./gallery.c1ac2cac.js'), __inject_styles(["client-8d931b47.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./gallery.3748b2c3.js'), __inject_styles(["client-8d931b47.css"])]).then(function(x) { return x[0]; });
   }
 }, {
   js: function js() {
-    return Promise.all([import('./resume.89590517.js'), __inject_styles(["client-8d931b47.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./resume.44862ed5.js'), __inject_styles(["client-8d931b47.css"])]).then(function(x) { return x[0]; });
   }
 }];
 var routes = [{

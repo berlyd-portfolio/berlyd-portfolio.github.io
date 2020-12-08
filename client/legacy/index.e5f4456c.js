@@ -1,4 +1,4 @@
-import { _ as _inherits, a as _getPrototypeOf, b as _possibleConstructorReturn, c as _classCallCheck, i as init, s as safe_not_equal, d as _assertThisInitialized, e as dispatch_dev, f as _createClass, S as SvelteComponentDev, v as validate_slots, o as onMount, g as element, h as space, j as claim_element, k as children, l as claim_space, m as detach_dev, n as attr_dev, p as add_location, q as set_style, r as insert_dev, t as append_dev, u as listen_dev, w as is_function, x as _slicedToArray, y as noop, z as binding_callbacks, A as identity, B as text, C as claim_text, D as add_render_callback, E as create_bidirectional_transition, F as create_component, G as claim_component, H as mount_component, I as transition_in, J as transition_out, K as destroy_component, L as toggle_class, M as prop_dev, N as query_selector_all, O as check_outros, P as run_all, Q as get_webp_support, R as globals, T as group_outros } from './client.59862862.js';
+import { _ as _inherits, a as _getPrototypeOf, b as _possibleConstructorReturn, c as _classCallCheck, i as init, s as safe_not_equal, d as _assertThisInitialized, e as dispatch_dev, f as _createClass, S as SvelteComponentDev, v as validate_slots, o as onMount, g as element, h as space, j as claim_element, k as children, l as claim_space, m as detach_dev, n as attr_dev, p as add_location, q as set_style, r as insert_dev, t as append_dev, u as listen_dev, w as is_function, x as _slicedToArray, y as noop, z as binding_callbacks, A as identity, B as text, C as claim_text, D as add_render_callback, E as create_bidirectional_transition, F as create_component, G as claim_component, H as mount_component, I as transition_in, J as transition_out, K as destroy_component, L as toggle_class, M as prop_dev, N as query_selector_all, O as check_outros, P as run_all, Q as get_webp_support, R as globals, T as group_outros } from './client.ffa4d03d.js';
 
 function cubicInOut(t) {
   return t < 0.5 ? 4.0 * t * t * t : 0.5 * Math.pow(2.0 * t - 2.0, 3.0) + 1.0;
@@ -369,12 +369,12 @@ function create_fragment$1(ctx) {
       this.h();
     },
     h: function hydrate() {
-      attr_dev(p, "class", "svelte-x1hzco");
-      add_location(p, file$1, 216, 2, 3391);
-      attr_dev(span, "class", "svelte-x1hzco");
-      add_location(span, file$1, 217, 2, 3408);
-      attr_dev(div, "class", "loading svelte-x1hzco");
-      add_location(div, file$1, 215, 0, 3351);
+      attr_dev(p, "class", "svelte-1y1iwro");
+      add_location(p, file$1, 223, 2, 3664);
+      attr_dev(span, "class", "svelte-1y1iwro");
+      add_location(span, file$1, 224, 2, 3681);
+      attr_dev(div, "class", "loading svelte-1y1iwro");
+      add_location(div, file$1, 222, 0, 3624);
     },
     m: function mount(target, anchor) {
       insert_dev(target, div, anchor);
@@ -460,7 +460,7 @@ function _createSuper$2(Derived) { var hasNativeReflectConstruct = _isNativeRefl
 
 function _isNativeReflectConstruct$2() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 var console_1 = globals.console;
-var file$2 = "src/routes/index.svelte"; // (171:2) {#if loader_display}
+var file$2 = "src/routes/index.svelte"; // (122:2) {#if loader_display}
 
 function create_if_block_2(ctx) {
   var loader;
@@ -496,11 +496,11 @@ function create_if_block_2(ctx) {
     block: block,
     id: create_if_block_2.name,
     type: "if",
-    source: "(171:2) {#if loader_display}",
+    source: "(122:2) {#if loader_display}",
     ctx: ctx
   });
   return block;
-} // (184:6) {#if loaded_target === loaded_count}
+} // (135:6) {#if loaded_target === loaded_count}
 
 
 function create_if_block_1(ctx) {
@@ -533,8 +533,7 @@ function create_if_block_1(ctx) {
     },
     l: function claim(nodes) {
       div = claim_element(nodes, "DIV", {
-        class: true,
-        id: true
+        class: true
       });
       var div_nodes = children(div);
       claim_component(img.$$.fragment, div_nodes);
@@ -553,14 +552,13 @@ function create_if_block_1(ctx) {
     },
     h: function hydrate() {
       attr_dev(a, "type", "button");
-      attr_dev(a, "class", "btn btn-outline-primary svelte-19vx4wi");
+      attr_dev(a, "class", "btn btn-outline-primary svelte-j1n5z6");
       a.hidden = a_hidden_value = !
       /*left_hovered*/
       ctx[1];
       attr_dev(a, "href", "left");
-      add_location(a, file$2, 196, 10, 4478);
-      attr_dev(div, "class", "inner-card svelte-19vx4wi");
-      attr_dev(div, "id", "left-inner");
+      add_location(a, file$2, 145, 10, 3829);
+      attr_dev(div, "class", "inner-card rounded-r-2xl svelte-j1n5z6");
       toggle_class(div, "active",
       /*left_hovered*/
       ctx[1]);
@@ -572,10 +570,7 @@ function create_if_block_1(ctx) {
       toggle_class(div, "inactive",
       /*right_hovered*/
       ctx[0]);
-      toggle_class(div, "card-enter",
-      /*entering*/
-      ctx[4]);
-      add_location(div, file$2, 184, 8, 4060);
+      add_location(div, file$2, 135, 8, 3461);
     },
     m: function mount(target, anchor) {
       insert_dev(target, div, anchor);
@@ -627,14 +622,6 @@ function create_if_block_1(ctx) {
         /*right_hovered*/
         ctx[0]);
       }
-
-      if (dirty &
-      /*entering*/
-      16) {
-        toggle_class(div, "card-enter",
-        /*entering*/
-        ctx[4]);
-      }
     },
     i: function intro(local) {
       if (current) return;
@@ -642,7 +629,7 @@ function create_if_block_1(ctx) {
       add_render_callback(function () {
         if (!div_transition) div_transition = create_bidirectional_transition(div,
         /*slideLeft*/
-        ctx[6], {}, true);
+        ctx[5], {}, true);
         div_transition.run(1);
       });
       current = true;
@@ -651,7 +638,7 @@ function create_if_block_1(ctx) {
       transition_out(img.$$.fragment, local);
       if (!div_transition) div_transition = create_bidirectional_transition(div,
       /*slideLeft*/
-      ctx[6], {}, false);
+      ctx[5], {}, false);
       div_transition.run(0);
       current = false;
     },
@@ -665,11 +652,11 @@ function create_if_block_1(ctx) {
     block: block,
     id: create_if_block_1.name,
     type: "if",
-    source: "(184:6) {#if loaded_target === loaded_count}",
+    source: "(135:6) {#if loaded_target === loaded_count}",
     ctx: ctx
   });
   return block;
-} // (214:6) {#if loaded_target === loaded_count}
+} // (163:6) {#if loaded_target === loaded_count}
 
 
 function create_if_block(ctx) {
@@ -702,8 +689,7 @@ function create_if_block(ctx) {
     },
     l: function claim(nodes) {
       div = claim_element(nodes, "DIV", {
-        class: true,
-        id: true
+        class: true
       });
       var div_nodes = children(div);
       claim_component(img.$$.fragment, div_nodes);
@@ -722,14 +708,13 @@ function create_if_block(ctx) {
     },
     h: function hydrate() {
       attr_dev(a, "type", "button");
-      attr_dev(a, "class", "btn btn-outline-primary svelte-19vx4wi");
+      attr_dev(a, "class", "btn btn-outline-primary svelte-j1n5z6");
       a.hidden = a_hidden_value = !
       /*right_hovered*/
       ctx[0];
       attr_dev(a, "href", "right");
-      add_location(a, file$2, 226, 10, 5321);
-      attr_dev(div, "class", "inner-card svelte-19vx4wi");
-      attr_dev(div, "id", "right-inner");
+      add_location(a, file$2, 173, 10, 4614);
+      attr_dev(div, "class", "inner-card rounded-l-2xl svelte-j1n5z6");
       toggle_class(div, "active",
       /*right_hovered*/
       ctx[0]);
@@ -741,10 +726,7 @@ function create_if_block(ctx) {
       toggle_class(div, "inactive",
       /*left_hovered*/
       ctx[1]);
-      toggle_class(div, "card-enter",
-      /*entering*/
-      ctx[4]);
-      add_location(div, file$2, 214, 8, 4900);
+      add_location(div, file$2, 163, 8, 4244);
     },
     m: function mount(target, anchor) {
       insert_dev(target, div, anchor);
@@ -796,14 +778,6 @@ function create_if_block(ctx) {
         /*left_hovered*/
         ctx[1]);
       }
-
-      if (dirty &
-      /*entering*/
-      16) {
-        toggle_class(div, "card-enter",
-        /*entering*/
-        ctx[4]);
-      }
     },
     i: function intro(local) {
       if (current) return;
@@ -811,7 +785,7 @@ function create_if_block(ctx) {
       add_render_callback(function () {
         if (!div_transition) div_transition = create_bidirectional_transition(div,
         /*slideRight*/
-        ctx[5], {}, true);
+        ctx[4], {}, true);
         div_transition.run(1);
       });
       current = true;
@@ -820,7 +794,7 @@ function create_if_block(ctx) {
       transition_out(img.$$.fragment, local);
       if (!div_transition) div_transition = create_bidirectional_transition(div,
       /*slideRight*/
-      ctx[5], {}, false);
+      ctx[4], {}, false);
       div_transition.run(0);
       current = false;
     },
@@ -834,7 +808,7 @@ function create_if_block(ctx) {
     block: block,
     id: create_if_block.name,
     type: "if",
-    source: "(214:6) {#if loaded_target === loaded_count}",
+    source: "(163:6) {#if loaded_target === loaded_count}",
     ctx: ctx
   });
   return block;
@@ -879,13 +853,13 @@ function create_fragment$2(ctx) {
       head_nodes.forEach(detach_dev);
       t0 = claim_space(nodes);
       main = claim_element(nodes, "MAIN", {
-        class: true
+        class: true,
+        style: true
       });
       var main_nodes = children(main);
       if (if_block0) if_block0.l(main_nodes);
       t1 = claim_space(main_nodes);
       div2 = claim_element(main_nodes, "DIV", {
-        id: true,
         class: true
       });
       var div2_nodes = children(div2);
@@ -911,16 +885,16 @@ function create_fragment$2(ctx) {
     h: function hydrate() {
       document.title = "Berly Dai Portfolio";
       attr_dev(div0, "id", "left");
-      attr_dev(div0, "class", "poster-card svelte-19vx4wi");
-      add_location(div0, file$2, 174, 4, 3827);
+      attr_dev(div0, "class", "pr-2");
+      add_location(div0, file$2, 125, 4, 3235);
       attr_dev(div1, "id", "right");
-      attr_dev(div1, "class", "poster-card svelte-19vx4wi");
-      add_location(div1, file$2, 204, 4, 4664);
-      attr_dev(div2, "id", "card-container");
-      attr_dev(div2, "class", "svelte-19vx4wi");
-      add_location(div2, file$2, 173, 2, 3797);
-      attr_dev(main, "class", "svelte-19vx4wi");
-      add_location(main, file$2, 169, 0, 3742);
+      attr_dev(div1, "class", "pl-2");
+      add_location(div1, file$2, 153, 4, 4015);
+      attr_dev(div2, "class", "flex h-full w-full pb-4");
+      add_location(div2, file$2, 124, 2, 3193);
+      attr_dev(main, "class", "w-full overflow-hidden");
+      set_style(main, "height", "calc(100vh - 5.5rem)");
+      add_location(main, file$2, 120, 0, 3070);
     },
     m: function mount(target, anchor) {
       insert_dev(target, t0, anchor);
@@ -938,13 +912,13 @@ function create_fragment$2(ctx) {
       if (!mounted) {
         dispose = [listen_dev(div0, "mouseenter",
         /*mouseenter_handler*/
-        ctx[9], false, false, false), listen_dev(div0, "mouseleave",
+        ctx[8], false, false, false), listen_dev(div0, "mouseleave",
         /*mouseleave_handler*/
-        ctx[10], false, false, false), listen_dev(div1, "mouseenter",
+        ctx[9], false, false, false), listen_dev(div1, "mouseenter",
         /*mouseenter_handler_1*/
-        ctx[11], false, false, false), listen_dev(div1, "mouseleave",
+        ctx[10], false, false, false), listen_dev(div1, "mouseleave",
         /*mouseleave_handler_1*/
-        ctx[12], false, false, false)];
+        ctx[11], false, false, false)];
         mounted = true;
       }
     },
@@ -1068,7 +1042,6 @@ function instance$2($$self, $$props, $$invalidate) {
   var right_hovered = false;
   var left_hovered = false;
   var exiting = false;
-  var entering = false;
   var loaded_count = 0;
   var loader_display = false;
   onMount(function () {
@@ -1134,7 +1107,7 @@ function instance$2($$self, $$props, $$invalidate) {
   }
 
   function enter(id) {
-    if (!exiting && !entering) {
+    if (!exiting) {
       if (id === "right") {
         $$invalidate(0, right_hovered = true);
       } else if (id === "left") {
@@ -1144,7 +1117,7 @@ function instance$2($$self, $$props, $$invalidate) {
   }
 
   function leave(id) {
-    if (!exiting && !entering) {
+    if (!exiting) {
       if (id === "right") {
         $$invalidate(0, right_hovered = false);
       } else if (id === "left") {
@@ -1184,7 +1157,6 @@ function instance$2($$self, $$props, $$invalidate) {
       right_hovered: right_hovered,
       left_hovered: left_hovered,
       exiting: exiting,
-      entering: entering,
       loaded_count: loaded_count,
       loaded_target: loaded_target,
       loader_display: loader_display,
@@ -1199,7 +1171,6 @@ function instance$2($$self, $$props, $$invalidate) {
     if ("right_hovered" in $$props) $$invalidate(0, right_hovered = $$props.right_hovered);
     if ("left_hovered" in $$props) $$invalidate(1, left_hovered = $$props.left_hovered);
     if ("exiting" in $$props) exiting = $$props.exiting;
-    if ("entering" in $$props) $$invalidate(4, entering = $$props.entering);
     if ("loaded_count" in $$props) $$invalidate(2, loaded_count = $$props.loaded_count);
     if ("loader_display" in $$props) $$invalidate(3, loader_display = $$props.loader_display);
   };
@@ -1208,7 +1179,7 @@ function instance$2($$self, $$props, $$invalidate) {
     $$self.$inject_state($$props.$$inject);
   }
 
-  return [right_hovered, left_hovered, loaded_count, loader_display, entering, slideRight, slideLeft, enter, leave, mouseenter_handler, mouseleave_handler, mouseenter_handler_1, mouseleave_handler_1];
+  return [right_hovered, left_hovered, loaded_count, loader_display, slideRight, slideLeft, enter, leave, mouseenter_handler, mouseleave_handler, mouseenter_handler_1, mouseleave_handler_1];
 }
 
 var Routes = /*#__PURE__*/function (_SvelteComponentDev) {

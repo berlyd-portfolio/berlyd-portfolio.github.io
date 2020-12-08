@@ -10,7 +10,6 @@
   let left_hovered = false;
 
   let exiting = false;
-  let entering = false;
 
   let loaded_count = 0;
   const loaded_target = 2;
@@ -65,7 +64,7 @@
   }
 
   function enter(id: string) {
-    if (!exiting && !entering) {
+    if (!exiting) {
       if (id === "right") {
         right_hovered = true;
       } else if (id === "left") {
@@ -75,7 +74,7 @@
   }
 
   function leave(id: string) {
-    if (!exiting && !entering) {
+    if (!exiting) {
       if (id === "right") {
         right_hovered = false;
       } else if (id === "left") {
@@ -86,45 +85,8 @@
 </script>
 
 <style>
-  main {
-    width: 100%;
-    height: calc(100vh - 48px - 2em);
-    overflow: hidden;
-  }
-
-  #card-container {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-
-  .poster-card {
-    height: calc(100% - 20px);
-  }
-
   .inner-card {
-    transition: width 0.5s ease-in-out, box-shadow 0.5s ease-in-out,
-      transform 0.5s ease-in;
-    height: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 0;
-    margin-right: 0;
-    overflow: hidden;
-    position: relative;
-    left: 0;
-  }
-
-  #left-inner.card-enter {
-    transform: translateX(-100%);
-  }
-
-  #right-inner.card-enter {
-    transform: translateX(100%);
+    @apply overflow-hidden relative h-full transition-all duration-500 ease-in-out;
   }
 
   .active {
@@ -146,24 +108,6 @@
       0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   }
 
-  #left {
-    padding-right: 10px;
-  }
-
-  #left-inner {
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-  }
-
-  #right {
-    padding-left: 10px;
-  }
-
-  #right-inner {
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-  }
-
   .btn {
     position: absolute;
     left: 50%;
@@ -176,14 +120,14 @@
   <title>Berly Dai Portfolio</title>
 </svelte:head>
 
-<main>
+<main class="w-full overflow-hidden" style="height: calc(100vh - 5.5rem)">
   {#if loader_display}
     <Loader />
   {/if}
-  <div id="card-container">
+  <div class="flex h-full w-full pb-4">
     <div
       id="left"
-      class="poster-card"
+      class="pr-2"
       on:mouseenter={function () {
         enter('left');
       }}
@@ -192,12 +136,10 @@
       }}>
       {#if loaded_target === loaded_count}
         <div
-          class="inner-card"
-          id="left-inner"
+          class="inner-card rounded-r-2xl"
           class:active={left_hovered}
           class:normal={!right_hovered && !left_hovered}
           class:inactive={right_hovered}
-          class:card-enter={entering}
           transition:slideLeft>
           <Img
             src="artwork/hidden_season_scaled"
@@ -213,7 +155,7 @@
     </div>
     <div
       id="right"
-      class="poster-card"
+      class="pl-2"
       on:mouseenter={function () {
         enter('right');
       }}
@@ -222,12 +164,10 @@
       }}>
       {#if loaded_target === loaded_count}
         <div
-          class="inner-card"
-          id="right-inner"
+          class="inner-card rounded-l-2xl"
           class:active={right_hovered}
           class:normal={!right_hovered && !left_hovered}
           class:inactive={left_hovered}
-          class:card-enter={entering}
           transition:slideRight>
           <Img
             src="artwork/pelton_gaming_scaled"

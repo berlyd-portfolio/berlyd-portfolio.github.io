@@ -4,26 +4,14 @@
 </script>
 
 <style>
-  @import url("https://fonts.googleapis.com/css?family=Oxygen:700&display=swap");
-
   .loading {
-    width: 80px;
-    height: 50px;
-    position: fixed;
-    top: 38.2%;
-    left: 50%;
-    transform: translateX(-50%), translateY(-50%);
+    @apply w-16 h-12 fixed top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
   }
 
   .loading p {
-    top: 0;
-    padding: 0;
-    margin: 0;
+    @apply top-0 p-0 m-0 text-xs tracking-wide;
     color: #5389a6;
-    font-family: "Oxygen", sans-serif;
     animation: text 3.5s ease both infinite;
-    font-size: 12px;
-    letter-spacing: 1px;
   }
 
   @keyframes text {
@@ -54,13 +42,8 @@
   }
 
   .loading span {
+    @apply rounded-full block h-4 w-4 bottom-0 absolute;
     background-color: #5389a6;
-    border-radius: 50px;
-    display: block;
-    height: 16px;
-    width: 16px;
-    bottom: 0;
-    position: absolute;
     transform: translateX(64px);
     animation: loading 3.5s ease both infinite;
   }

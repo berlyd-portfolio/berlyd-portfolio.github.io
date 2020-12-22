@@ -2060,41 +2060,41 @@ function create_fragment(ctx) {
     h: function hydrate() {
       if (img.src !== (img_src_value = "logo.png")) attr_dev(img, "src", img_src_value);
       attr_dev(img, "alt", "logo");
-      attr_dev(img, "class", "h-12 w-12");
-      add_location(img, file, 23, 18, 595);
+      attr_dev(img, "class", "w-12 h-12");
+      add_location(img, file, 24, 18, 610);
       attr_dev(a0, "href", ".");
-      add_location(a0, file, 23, 6, 583);
-      attr_dev(li0, "class", "absolute left-0 top-0 h-full ml-4 inline-flex flex-row items-center");
-      add_location(li0, file, 21, 4, 490);
+      add_location(a0, file, 24, 6, 598);
+      attr_dev(li0, "class", "absolute top-0 left-0 inline-flex flex-row items-center h-full ml-4");
+      add_location(li0, file, 22, 4, 505);
       attr_dev(a1, "href", ".");
-      attr_dev(a1, "class", "svelte-moxqfy");
+      attr_dev(a1, "class", "svelte-oysd9h");
       toggle_class(a1, "font-bold",
       /*segment*/
       ctx[0] === undefined);
-      add_location(a1, file, 27, 8, 708);
-      attr_dev(li1, "class", "text-link svelte-moxqfy");
-      add_location(li1, file, 26, 6, 677);
+      add_location(a1, file, 28, 8, 723);
+      attr_dev(li1, "class", "text-link svelte-oysd9h");
+      add_location(li1, file, 27, 6, 692);
       attr_dev(a2, "href", "gallery");
-      attr_dev(a2, "class", "svelte-moxqfy");
+      attr_dev(a2, "class", "svelte-oysd9h");
       toggle_class(a2, "font-bold",
       /*segment*/
       ctx[0] === "gallery");
-      add_location(a2, file, 30, 8, 818);
-      attr_dev(li2, "class", "text-link svelte-moxqfy");
-      add_location(li2, file, 29, 6, 787);
+      add_location(a2, file, 31, 8, 833);
+      attr_dev(li2, "class", "text-link svelte-oysd9h");
+      add_location(li2, file, 30, 6, 802);
       attr_dev(a3, "href", "resume");
-      attr_dev(a3, "class", "svelte-moxqfy");
+      attr_dev(a3, "class", "svelte-oysd9h");
       toggle_class(a3, "font-bold",
       /*segment*/
       ctx[0] === "resume");
-      add_location(a3, file, 33, 8, 937);
-      attr_dev(li3, "class", "text-link svelte-moxqfy");
-      add_location(li3, file, 32, 6, 906);
-      add_location(div, file, 25, 4, 665);
-      attr_dev(ul, "class", "flex flex-row justify-center items-center relative");
-      add_location(ul, file, 20, 2, 422);
+      add_location(a3, file, 34, 8, 952);
+      attr_dev(li3, "class", "text-link svelte-oysd9h");
+      add_location(li3, file, 33, 6, 921);
+      add_location(div, file, 26, 4, 680);
+      attr_dev(ul, "class", "relative flex flex-row items-center justify-center");
+      add_location(ul, file, 21, 2, 437);
       attr_dev(nav, "class", "m-4");
-      add_location(nav, file, 19, 0, 402);
+      add_location(nav, file, 20, 0, 417);
     },
     m: function mount(target, anchor) {
       insert_dev(target, nav, anchor);
@@ -2301,7 +2301,7 @@ function create_fragment$1(ctx) {
       this.h();
     },
     h: function hydrate() {
-      add_location(main, file$1, 17, 0, 444);
+      add_location(main, file$1, 17, 0, 452);
     },
     m: function mount(target, anchor) {
       mount_component(nav, target, anchor);
@@ -3280,15 +3280,15 @@ var App = /*#__PURE__*/function (_SvelteComponentDev) {
 var ignore = [];
 var components = [{
   js: function js() {
-    return Promise.all([import('./index.68ddcad8.js'), __inject_styles(["client-0ed886a4.css","index-e309e415.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./index.9666e544.js'), __inject_styles(["client-7f459e97.css","index-e309e415.css"])]).then(function(x) { return x[0]; });
   }
 }, {
   js: function js() {
-    return Promise.all([import('./gallery.156e6635.js'), __inject_styles(["client-0ed886a4.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./gallery.0b603685.js'), __inject_styles(["client-7f459e97.css"])]).then(function(x) { return x[0]; });
   }
 }, {
   js: function js() {
-    return Promise.all([import('./resume.7c59a8bc.js'), __inject_styles(["client-0ed886a4.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./resume.3763c410.js'), __inject_styles(["client-7f459e97.css"])]).then(function(x) { return x[0]; });
   }
 }];
 var routes = [{

@@ -1,4 +1,4 @@
-import { _ as _inherits, a as _getPrototypeOf, b as _possibleConstructorReturn, c as _classCallCheck, i as init, s as safe_not_equal, d as _assertThisInitialized, e as dispatch_dev, f as _createClass, S as SvelteComponentDev, v as validate_slots, o as onMount, g as element, h as space, j as claim_element, k as children, l as claim_space, m as detach_dev, n as attr_dev, p as add_location, q as set_style, r as insert_dev, t as append_dev, u as listen_dev, w as is_function, x as _slicedToArray, y as noop, z as binding_callbacks, A as identity, B as text, C as claim_text, D as add_render_callback, E as create_bidirectional_transition, F as create_component, G as claim_component, H as mount_component, I as transition_in, J as transition_out, K as destroy_component, L as toggle_class, M as prop_dev, N as query_selector_all, O as check_outros, P as run_all, Q as get_webp_support, R as globals, T as group_outros } from './client.4c4eb15d.js';
+import { _ as _inherits, a as _getPrototypeOf, b as _possibleConstructorReturn, c as _classCallCheck, i as init, s as safe_not_equal, d as _assertThisInitialized, e as dispatch_dev, f as _createClass, S as SvelteComponentDev, v as validate_slots, o as onMount, g as element, h as space, j as claim_element, k as children, l as claim_space, m as detach_dev, n as attr_dev, p as add_location, q as set_style, r as insert_dev, t as append_dev, u as listen_dev, w as is_function, x as _slicedToArray, y as noop, z as binding_callbacks, A as identity, B as text, C as claim_text, D as add_render_callback, E as create_bidirectional_transition, F as create_component, G as claim_component, H as mount_component, I as transition_in, J as transition_out, K as destroy_component, L as toggle_class, M as prop_dev, N as query_selector_all, O as check_outros, P as run_all, Q as get_webp_support, R as globals, T as group_outros } from './client.ca38221d.js';
 
 function cubicInOut(t) {
   return t < 0.5 ? 4.0 * t * t * t : 0.5 * Math.pow(2.0 * t - 2.0, 3.0) + 1.0;
@@ -60,13 +60,13 @@ function create_fragment(ctx) {
       /*src*/
       ctx[0] + ".webp");
       attr_dev(source0, "type", "image/webp");
-      add_location(source0, file, 14, 2, 267);
+      add_location(source0, file, 14, 2, 275);
       attr_dev(source1, "srcset", source1_srcset_value =
       /*src*/
       ctx[0] + ".png");
       attr_dev(source1, "type", "image/png");
-      add_location(source1, file, 15, 2, 321);
-      attr_dev(img_1, "class", "w-full h-full object-cover transition-opacity duration-500 ease-in-out");
+      add_location(source1, file, 15, 2, 329);
+      attr_dev(img_1, "class", "object-cover w-full h-full transition-opacity duration-500 ease-in-out");
       if (img_1.src !== (img_1_src_value =
       /*src*/
       ctx[0] + ".png")) attr_dev(img_1, "src", img_1_src_value);
@@ -76,9 +76,9 @@ function create_fragment(ctx) {
       set_style(img_1, "opacity",
       /*opacity*/
       ctx[2]);
-      add_location(img_1, file, 16, 2, 373);
+      add_location(img_1, file, 16, 2, 381);
       attr_dev(picture, "class", "w-full h-full");
-      add_location(picture, file, 13, 0, 233);
+      add_location(picture, file, 13, 0, 241);
     },
     m: function mount(target, anchor) {
       insert_dev(target, picture, anchor);
@@ -370,11 +370,11 @@ function create_fragment$1(ctx) {
     },
     h: function hydrate() {
       attr_dev(p, "class", "svelte-1y1iwro");
-      add_location(p, file$1, 223, 2, 3664);
+      add_location(p, file$1, 223, 2, 3679);
       attr_dev(span, "class", "svelte-1y1iwro");
-      add_location(span, file$1, 224, 2, 3681);
+      add_location(span, file$1, 224, 2, 3696);
       attr_dev(div, "class", "loading svelte-1y1iwro");
-      add_location(div, file$1, 222, 0, 3624);
+      add_location(div, file$1, 222, 0, 3639);
     },
     m: function mount(target, anchor) {
       insert_dev(target, div, anchor);
@@ -557,7 +557,7 @@ function create_if_block_1(ctx) {
       /*left_hovered*/
       ctx[1];
       attr_dev(a, "href", "left");
-      add_location(a, file$2, 147, 10, 3853);
+      add_location(a, file$2, 147, 10, 3876);
       attr_dev(div, "class", "inner-card rounded-r-2xl svelte-1t689gm");
       toggle_class(div, "active",
       /*left_hovered*/
@@ -570,7 +570,7 @@ function create_if_block_1(ctx) {
       toggle_class(div, "inactive",
       /*right_hovered*/
       ctx[0]);
-      add_location(div, file$2, 137, 8, 3485);
+      add_location(div, file$2, 137, 8, 3508);
     },
     m: function mount(target, anchor) {
       insert_dev(target, div, anchor);
@@ -713,7 +713,7 @@ function create_if_block(ctx) {
       /*right_hovered*/
       ctx[0];
       attr_dev(a, "href", "right");
-      add_location(a, file$2, 175, 10, 4638);
+      add_location(a, file$2, 175, 10, 4661);
       attr_dev(div, "class", "inner-card rounded-l-2xl svelte-1t689gm");
       toggle_class(div, "active",
       /*right_hovered*/
@@ -726,7 +726,7 @@ function create_if_block(ctx) {
       toggle_class(div, "inactive",
       /*left_hovered*/
       ctx[1]);
-      add_location(div, file$2, 165, 8, 4268);
+      add_location(div, file$2, 165, 8, 4291);
     },
     m: function mount(target, anchor) {
       insert_dev(target, div, anchor);
@@ -886,15 +886,15 @@ function create_fragment$2(ctx) {
       document.title = "Berly Dai Portfolio";
       attr_dev(div0, "id", "left");
       attr_dev(div0, "class", "pr-2");
-      add_location(div0, file$2, 127, 4, 3259);
+      add_location(div0, file$2, 127, 4, 3282);
       attr_dev(div1, "id", "right");
       attr_dev(div1, "class", "pl-2");
-      add_location(div1, file$2, 155, 4, 4039);
-      attr_dev(div2, "class", "flex h-full w-full pb-4");
-      add_location(div2, file$2, 126, 2, 3217);
+      add_location(div1, file$2, 155, 4, 4062);
+      attr_dev(div2, "class", "flex w-full h-full pb-4");
+      add_location(div2, file$2, 126, 2, 3240);
       attr_dev(main, "class", "w-full overflow-hidden");
       set_style(main, "height", "calc(100vh - 5.5rem)");
-      add_location(main, file$2, 122, 0, 3094);
+      add_location(main, file$2, 122, 0, 3117);
     },
     m: function mount(target, anchor) {
       insert_dev(target, t0, anchor);

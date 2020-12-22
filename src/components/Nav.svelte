@@ -1,24 +1,23 @@
-<script lang="ts">
+<script lang="typescript">
   export let segment: string;
 </script>
 
-<style>
+<style lang="postcss">
   @layer components {
     .text-link {
       @apply px-2 py-4 block float-left;
-
-      & a {
-        @apply text-black no-underline block;
-      }
+    }
+    .text-link a {
+      @apply text-black no-underline block;
     }
   }
 </style>
 
 <nav class="m-4">
-  <ul class="flex flex-row justify-center items-center relative">
+  <ul class="relative flex flex-row items-center justify-center">
     <li
-      class="absolute left-0 top-0 h-full ml-4 inline-flex flex-row items-center">
-      <a href="."><img src="logo.png" alt="logo" class="h-12 w-12" /></a>
+      class="absolute top-0 left-0 inline-flex flex-row items-center h-full ml-4">
+      <a href="."><img src="logo.png" alt="logo" class="w-12 h-12" /></a>
     </li>
     <div>
       <li class="text-link">

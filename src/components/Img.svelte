@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="typescript">
   import { onMount } from "svelte";
 
   export let src: string;
@@ -19,7 +19,7 @@
   <source srcset={src + '.webp'} type="image/webp" />
   <source srcset={src + '.png'} type="image/png" />
   <img
-    class="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
+    class="object-cover w-full h-full transition-opacity duration-500 ease-in-out"
     src={src + '.png'}
     {alt}
     style="opacity: {opacity}"

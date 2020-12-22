@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="typescript">
   import { onMount } from "svelte";
   import { cubicInOut } from "svelte/easing";
 
@@ -84,7 +84,7 @@
   }
 </script>
 
-<style>
+<style lang="postcss">
   @layer components {
     .inner-card {
       @apply overflow-hidden relative h-full transition-all duration-500 ease-in-out;
@@ -128,7 +128,7 @@
   {#if loader_display}
     <Loader />
   {/if}
-  <div class="flex h-full w-full pb-4">
+  <div class="flex w-full h-full pb-4">
     <div
       id="left"
       class="pr-2"

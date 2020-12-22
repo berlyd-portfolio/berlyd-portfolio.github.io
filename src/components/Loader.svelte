@@ -3,7 +3,7 @@
   import { fade } from "svelte/transition";
 </script>
 
-<style>
+<style lang="postcss">
   .loading {
     @apply w-16 h-12 fixed top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
   }

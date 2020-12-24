@@ -1701,6 +1701,10 @@ function init(component, options, instance, create_fragment, not_equal, props) {
 
   set_current_component(parent_component);
 }
+/**
+ * Base class for Svelte components. Used when dev=false.
+ */
+
 
 var SvelteComponent = /*#__PURE__*/function () {
   function SvelteComponent() {
@@ -1739,7 +1743,7 @@ var SvelteComponent = /*#__PURE__*/function () {
 
 function dispatch_dev(type, detail) {
   document.dispatchEvent(custom_event(type, Object.assign({
-    version: '3.29.7'
+    version: '3.31.0'
   }, detail)));
 }
 
@@ -1829,6 +1833,10 @@ function validate_slots(name, slot, keys) {
     }
   }
 }
+/**
+ * Base class for Svelte components with some minor dev-enhancements. Used when dev=true.
+ */
+
 
 var SvelteComponentDev = /*#__PURE__*/function (_SvelteComponent) {
   _inherits(SvelteComponentDev, _SvelteComponent);
@@ -2301,7 +2309,7 @@ function create_fragment$1(ctx) {
       this.h();
     },
     h: function hydrate() {
-      add_location(main, file$1, 17, 0, 452);
+      add_location(main, file$1, 12, 0, 335);
     },
     m: function mount(target, anchor) {
       mount_component(nav, target, anchor);
@@ -3280,15 +3288,19 @@ var App = /*#__PURE__*/function (_SvelteComponentDev) {
 var ignore = [];
 var components = [{
   js: function js() {
-    return Promise.all([import('./index.9666e544.js'), __inject_styles(["client-7f459e97.css","index-e309e415.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./index.c39f6fa8.js'), __inject_styles(["client-e566bf6c.css","index-e309e415.css"])]).then(function(x) { return x[0]; });
   }
 }, {
   js: function js() {
-    return Promise.all([import('./gallery.0b603685.js'), __inject_styles(["client-7f459e97.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./new_landing.571cbde7.js'), __inject_styles(["client-e566bf6c.css"])]).then(function(x) { return x[0]; });
   }
 }, {
   js: function js() {
-    return Promise.all([import('./resume.3763c410.js'), __inject_styles(["client-7f459e97.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./gallery.8c7d7b59.js'), __inject_styles(["client-e566bf6c.css"])]).then(function(x) { return x[0]; });
+  }
+}, {
+  js: function js() {
+    return Promise.all([import('./resume.4bf92076.js'), __inject_styles(["client-e566bf6c.css"])]).then(function(x) { return x[0]; });
   }
 }];
 var routes = [{
@@ -3298,16 +3310,22 @@ var routes = [{
     i: 0
   }]
 }, {
+  // new_landing.svelte
+  pattern: /^\/new_landing\/?$/,
+  parts: [{
+    i: 1
+  }]
+}, {
   // gallery.svelte
   pattern: /^\/gallery\/?$/,
   parts: [{
-    i: 1
+    i: 2
   }]
 }, {
   // resume.svelte
   pattern: /^\/resume\/?$/,
   parts: [{
-    i: 2
+    i: 3
   }]
 }];
 

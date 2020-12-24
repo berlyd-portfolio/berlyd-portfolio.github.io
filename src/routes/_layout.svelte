@@ -12,12 +12,6 @@
   });
 </script>
 
-<style global>
-  body {
-    overflow-y: scroll;
-  }
-</style>
-
 <Nav {segment} />
 
 <main>
